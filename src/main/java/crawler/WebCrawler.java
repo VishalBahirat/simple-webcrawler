@@ -1,14 +1,15 @@
 package crawler;
 
+import java.io.IOException;
+import java.util.HashSet;
+
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.regex.Pattern;
+import crawler.constants.Constants;
 
 public class WebCrawler {
 
@@ -69,21 +70,22 @@ public class WebCrawler {
 
 	private boolean isUrlNotInIgnoreList(String url) {
 		// Check for email links, etc & ignore such urls for crawling.
-		return !(url.matches("mailto:.*"));
+		return !(url.matches(Constants.IGNORE_URL_REGEX));
 	}
 
 	private boolean isStaticContent(String url) {
-		return url.matches(".*css|.*scss|.*jpeg|.*jpg|.*pdf|.*xls|.*xlsx|.*csv");
+		return url.matches(Constants.STATIC_PAGES_REGEX);
 	}
 
 	private boolean isURLInWhiteList(String url) {
-		return StringUtils.contains(url, "prudential.co");
+		return StringUtils.contains(url, Constants.DOMAIN_MATCHER);
 	}
 
 	public static void main(String[] args) {
 		// 1. Pick a URL from the frontier
 		WebCrawler crawler = new WebCrawler();
-		crawler.getPageLinks("http://www.prudential.co.uk/");
+		System.out.println("Starting to crawl..");
+		crawler.getPageLinks(Constants.ROOT);
 		System.out.println(crawler.toString());
 		//
 		}
