@@ -1,7 +1,7 @@
 # simple-webcrawler
 This is a simple web crawler which can crawl a root site traversing all 'a href' tags inside it
 
-** Build/Run **
+# Build/Run 
 Requirements - 
 1. You need Java Runtime environment and Maven installed on your system
 2. An IDE - Eclipse or IntelliJ (optional)
