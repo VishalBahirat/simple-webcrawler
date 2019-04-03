@@ -21,4 +21,3 @@ Next Level -
 1. Target SPA as currently it can only work for simple HTML web applications and not for SPA where the link may be transimitted through a response. This will need a rendering mechanism to wait and analyze AJAX calls.
 2. Add schedulling capabilities so that we can have latest data in-hand. The scheduller should atleast run daily.
 3. Performance Improvement - Currently the program runs for a long time as it traverses all pages and all pages inside it and so on. Threading can be explored in this area
-
